@@ -1,0 +1,14 @@
+
+MEMORY
+{
+  FLASH : ORIGIN = 0x00000000, LENGTH = 256K
+  RAM : ORIGIN = 0x20000000, LENGTH = 64K
+  SYSTICK (rw) : ORIGIN = 0xE000E010, LENGTH = 16
+}
+
+SECTIONS
+{
+	.systick_regs (NOLOAD) : {
+		*(.bss.systick_regs)
+	} > SYSTICK
+}
